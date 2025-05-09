@@ -1,53 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdn.tailwindcss.com"></script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Webi Pager | Landing Page Experts</title>
-
   <style>
 
-/*Subscribe Button*/
+ .btn1 {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #10b981, #7dd3fc);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+  }
 
-.subscribe-section {
-  text-align: center;
-  padding: 50px 20px;
-  margin: 50px auto;
-  width: 90%;
-  max-width: 600px;
-  color: dark grey;
-}
+  .btn1::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 10%, transparent 60%);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
 
-.subscribe-section h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
+  .btn1:active::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: transform 0s, opacity 0s;
+  }
 
-.subscribe-section p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
+  .btn1:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.4);
+  }
 
-.subscribe-button {
-  background-color: #50C878; /* Emerald Green */
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1em;
-  font-weight: bold;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
+  #pricing {
+    padding: 60px 20px;
+    background-color: #f0fdf4;
+    text-align: center;
+  }
 
-.subscribe-button:hover {
-  background-color: #3A6073; /* Light Navy Blue on hover */
-  transform: scale(1.05); /* Slightly enlarge button on hover */
-}
+  #pricing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #15803d;
+  }
 
-    /* Reset default styles */
+  .pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .pricing-container .card {
+    background: white;
+    border: 1px solid #d1fae5;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    width: 300px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .pricing-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  .pricing-container .card h3 {
+    color: #1e3a8a;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .pricing-container .card p, .card ul {
+    color: #374151;
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
     * {
       margin: 0;
       padding: 0;
@@ -87,7 +131,7 @@
     }
 
     .logo-text .pager {
-      color: #34a853; /* Emerald green */
+      color: #34a853;
     }
 
     nav a {
@@ -128,46 +172,176 @@
       background-color: #2c8d47;
     }
 
-    .works {
+    .works, .about, .contact {
       padding: 60px 20px;
       text-align: center;
     }
 
-    .works h2 {
-      margin-bottom: 40px;
-      color: #1a73e8;
+  #works {
+    padding: 60px 20px;
+    background-color: #f0fdf4;
+    text-align: center;
+  }
+
+  #works h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #15803d;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .work-item {
+    background: white;
+    border: 1px solid #d1fae5;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    width: 300px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .work-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  .work-item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .work-item h3 {
+    color: #1e3a8a;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .work-item p {
+    color: #374151;
+    font-size: 1rem;
+  }
+
+    .subscribe-section {
+      text-align: center;
+      padding: 50px 20px;
+      margin: 50px auto;
+      width: 90%;
+      max-width: 600px;
+      color: dark grey;
     }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+    .subscribe-section h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
     }
 
-    .work-item {
-      width: 300px;
-      transition: transform 0.3s;
+    .subscribe-section p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
     }
 
-    .work-item img {
-      width: 100%;
-      border-radius: 8px;
+    .subscribe-button {
+      background-color: #50C878;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 30px;
       cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
-    .work-item:hover {
+    .subscribe-button:hover {
+      background-color: #3A6073;
       transform: scale(1.05);
     }
 
-    .about, .contact {
-      padding: 60px 20px;
-      text-align: center;
+    .pricing-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 20px;
     }
 
-    .about h2, .contact h2 {
-      margin-bottom: 20px;
-      color: #1a73e8;
+    .pricing-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #15803d;
+      margin: 60px 0 40px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      color: #15803d;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 15px;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    .card ul li::before {
+      content: "✓ ";
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #065f46;
+      margin: 12px 0;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      background-color: #16a34a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #15803d;
     }
 
     footer {
@@ -175,10 +349,8 @@
       text-align: center;
       padding: 15px;
       font-size: 0.9rem;
-      margin-top: 40px;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -189,22 +361,18 @@
       }
     }
   </style>
-
 </head>
-
 <body>
-
   <header>
     <div class="logo-text">
       <img src="Images/Logo.png" alt="Webi Pager Logo" class="logo">
-      <span class="webi">Webi </span><span class="pager">  Pager</span>
+      <span class="webi">Webi </span><span class="pager"> Pager</span>
     </div>
 <nav>
-  <a href="#works">Works</a>
-  <a href="#about">About</a>
   <a href="#pricing">Pricing</a>
+  <a href="works.html">Works</a> <!-- updated -->
+  <a href="#about">About</a>
   <a href="#contact">Contact</a>
-  <a href="#subscribe">Subscription</a>
 </nav>
   </header>
 
@@ -214,84 +382,83 @@
     <a href="#contact" class="cta-button">Get Your Landing Page Today</a>
   </section>
 
-  <section id="works" class="works">
-    <h2>Our Works</h2>
-    <div class="gallery">
-      <div class="work-item">
-        <a href="Images/Bakery 1.JPG" target="_blank">
-          <img src="Images/Bakery 1.JPG" alt="Bakery 1">
-        </a><br><br>
-        <a href="Images/Bakery 2.JPG" target="_blank">
-          <img src="Images/Bakery 2.JPG" alt="Bakery 2">
-        </a>
-        <p><b>Where every click unveils a slice of sweetness, a landing page crafted for your bakery’s delights.</b></p><br><br>
+<section id="works" class="works">
+  <h2 style="font-size: 2.5rem; margin-bottom: 40px; color: #15803d; text-align: center;">Our Works</h2>
+  <div style="text-align: center;">
+    <a href="works.html" class="btn1">See Our Works</a>
+  </div>
+</section>
+
+  <section id="pricing" class="pricing">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-container">
+      <div class="card">
+        <h3>Basic Template</h3>
+        <ul>
+          <li>HTML/CSS/JS file</li>
+          <li style="color: #dc2626;">✗ No customization</li>
+        </ul>
+        <div class="price">₹250</div>
+        <a href="#" class="btn">Choose Plan</a>
       </div>
-      <div class="work-item">
-        <a href="Images/Shoe 1.JPG" target="_blank">
-          <img src="Images/Shoe 1.JPG" alt="Shoe 1">
-        </a><br><br>
-        <a href="Images/Shoe 2.JPG" target="_blank">
-          <img src="Images/Shoe 2.JPG" alt="Shoe 2">
-        </a><br><br>
-        <a href="Images/Shoe 3.JPG" target="_blank">
-          <img src="Images/Shoe 3.JPG" alt="Shoe 3">
-        </a>
-        <p><b>An eye-catching landing page, crafted for a boutique where shoes weave style's own stage</b></p>
+
+      <div class="card">
+        <h3>Custom-Branded Version</h3>
+        <ul>
+          <li>Logo, colors, content edits</li>
+          <li>Basic branding support</li>
+        </ul>
+        <div class="price">₹500</div>
+        <a href="#" class="btn">Choose Plan</a>
       </div>
-      <div class="work-item">
-        <a href="Images/Hospital 1.JPG" target="_blank">
-          <img src="Images/Hospital 1.JPG" alt="Hospital 1">
-        </a><br><br>
-        <a href="Images/Hospital 2.JPG" target="_blank">
-          <img src="Images/Hospital 2.JPG" alt="Hospital 2">
-        </a>
-        <p><b>A digital embrace for healing, a landing page created for a hospital's care.</b></p>
+
+      <div class="card">
+        <h3>Fully Integrated Setup</h3>
+        <ul>
+          <li>Lead magnet</li>
+          <li>Email & hosting help</li>
+        </ul>
+        <div class="price">₹2000</div>
+        <a href="#" class="btn">Choose Plan</a>
+      </div>
+
+      <div class="card">
+        <h3>Advanced SaaS Version</h3>
+        <ul>
+          <li>Analytics & tracking</li>
+          <li>Optimization support</li>
+        </ul>
+        <div class="price">₹5000</div>
+        <a href="#" class="btn">Choose Plan</a>
+      </div>
+
+      <div class="card">
+        <h3>Modification Work</h3>
+        <ul>
+          <li>Edit existing pages</li>
+          <li>Adjust text, colors, layout</li>
+        </ul>
+        <div class="note">*Price varies based on the quantity and complexity of changes</div>
+        <a href="#" class="btn">Request Quote</a>
+      </div>
+
+      <div class="card">
+        <h3>Full Website Creation</h3>
+        <ul>
+          <li>Custom multi-page site</li>
+          <li>Responsive & optimized</li>
+        </ul>
+        <div class="note">*Price depends on project size and technical complexity</div>
+        <a href="#" class="btn">Request Quote</a>
       </div>
     </div>
   </section>
 
+ 
   <section id="about" class="about">
     <h2>About Us</h2>
-    <p><b><i>At Webi Pager, we specialize in creating landing pages that convert visitors into customers. We blend design and strategy for optimal results. Editing of the code is also available here.</i></b></p>
+    <p><b><i>At Webi Pager, we specialize in creating landing pages that convert visitors into customers. We blend design and strategy for optimal results.</i></b></p>
   </section>
-
-<section id="pricing">
-
-<div class="bg-white mt-12 rounded-2xl shadow-lg p-8 overflow-x-auto">
-  <h2 class="text-3xl font-bold mb-6 text-center text-green-700">Pricing</h2>
-  <table class="min-w-full table-fixed border border-green-300 rounded-lg overflow-hidden text-sm">
-    <thead class="bg-green-100 text-green-900">
-      <tr class="font-extrabold">
-        <th class="border border-green-300 px-4 py-3 text-left">Plan</th>
-        <th class="border border-green-300 px-4 py-3 text-left">Features</th>
-        <th class="border border-green-300 px-4 py-3 text-left">Price</th>
-      </tr>
-    </thead>
-    <tbody class="text-gray-800 font-bold">
-      <tr class="bg-white hover:bg-green-50 transition">
-        <td class="border border-green-200 px-4 py-3">Basic Template</td>
-        <td class="border border-green-200 px-4 py-3">HTML/CSS/JS file only, no customization.</td>
-        <td class="border border-green-200 px-4 py-3 text-green-700">₹250</td>
-      </tr>
-      <tr class="bg-green-50 hover:bg-green-100 transition">
-        <td class="border border-green-200 px-4 py-3">Custom-Branded Version</td>
-        <td class="border border-green-200 px-4 py-3">Includes your logo, colors, and content edits.</td>
-        <td class="border border-green-200 px-4 py-3 text-green-700">₹500</td>
-      </tr>
-      <tr class="bg-white hover:bg-green-50 transition">
-        <td class="border border-green-200 px-4 py-3">Fully Integrated Setup</td>
-        <td class="border border-green-200 px-4 py-3">Lead magnet, email setup, and hosting help.</td>
-        <td class="border border-green-200 px-4 py-3 text-green-800">₹2000</td>
-      </tr>
-      <tr class="bg-green-50 hover:bg-green-100 transition">
-        <td class="border border-green-200 px-4 py-3">Advanced SaaS Version</td>
-        <td class="border border-green-200 px-4 py-3">Analytics, tracking, and optimization.</td>
-        <td class="border border-green-200 px-4 py-3 text-green-800">₹5000</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
 
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
@@ -299,22 +466,19 @@
     <p>Instagram: <a href="https://instagram.com/webipagerdesigns" target="_blank">@webipagerdesigns</a></p>
   </section>
 
-<section id="subscribe">
-<div class="subscribe-section">
-  <h2>Stay Updated!</h2>
-  <p>Subscribe to get the latest updates and offers.</p>
-  <a href="https://forms.gle/Dts4yTv1z7DXrFAs5" target="_blank">
-    <button class="subscribe-button">Subscribe Now</button>
-  </a>
-</div>
-</section>
+  <div class="subscribe-section">
+    <h2>Stay Updated!</h2>
+    <p>Subscribe to get the latest updates and offers.</p>
+    <a href="https://forms.gle/Dts4yTv1z7DXrFAs5" target="_blank">
+      <button class="subscribe-button">Subscribe Now</button>
+    </a>
+  </div>
 
   <footer>
     <p>© 2025 Webi Pager. All rights reserved.</p>
   </footer>
 
   <script>
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -324,6 +488,5 @@
       });
     });
   </script>
-
 </body>
 </html>
