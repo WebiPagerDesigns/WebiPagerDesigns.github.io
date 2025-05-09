@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Works - Webi Pager</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0fdf4;
+      padding: 40px;
+      margin: 0;
+      color: #1f2937;
+    }
+    h1 {
+      text-align: center;
+      color: #15803d;
+      margin-bottom: 40px;
+      font-size: 2.8rem;
+    }
+    .grid-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .section {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s;
+    }
+    .section:hover {
+      transform: translateY(-5px);
+    }
+    .section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .section img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .section h2 {
+      color: #1e3a8a;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .section p {
+      font-size: 1rem;
+      color: #374151;
+      text-align: center;
+    }
+    .back-button {
+      display: block;
+      text-align: center;
+      margin: 50px auto 0;
+      padding: 10px 25px;
+      background-color: #1e3a8a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      max-width: 200px;
+    }
+    .back-button:hover {
+      background-color: #153075;
+    }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Works</h1>
+
+  <div class="grid-container">
+    <div class="section">
+      <img src="Images/Bakery 1.JPG" alt="Bakery 1">
+      <img src="Images/Bakery 2.JPG" alt="Bakery 2">
+      <h2>Bakery Delights</h2>
+      <p>Every click unveils a slice of sweetness with a tailored landing page for a bakery business.</p>
+    </div>
+
+    <div class="section">
+      <img src="Images/Shoe 1.JPG" alt="Shoe 1">
+      <img src="Images/Shoe 2.JPG" alt="Shoe 2">
+      <img src="Images/Shoe 3.JPG" alt="Shoe 3">
+      <h2>Shoe Boutique</h2>
+      <p>Step into style with a visually compelling landing page for a fashionable shoe store.</p>
+    </div>
+
+    <div class="section">
+      <img src="Images/Cafe 1.JPG" alt="Cafe 1">
+      <img src="Images/Cafe 2.JPG" alt="Cafe 2">
+      <img src="Images/Cafe 3.JPG" alt="Cafe 3">
+      <h2>Brew Haven Cafe</h2>
+      <p>Brief explanation</p>
+    </div>
+
+    <div class="section">
+      <img src="Images/Hospital 1.JPG" alt="Hospital 1">
+      <img src="Images/Hospital 2.JPG" alt="Hospital 2">
+      <h2>Hospital Outreach</h2>
+      <p>Designed for care and trust, this landing page helps hospitals connect with patients online.</p>
+    </div>
+
+    <div class="section">
+      <img src="Images/Skin 1.JPG" alt="Skin 1">
+      <img src="Images/Skin 2.JPG" alt="Skin 2">
+      <img src="Images/Skin 3.JPG" alt="Skin 3">
+      <h2>Glow Naturally</h2>
+      <p>Brief explanation</p>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-button">&larr; Back to Home</a>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Full Image">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.section img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
